@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARY Lucky Draw - Win 100,000 PKR!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D4AF37; /* Gold color */
+            --secondary: #1a1a1a;
+            --accent: #B8860B; /* Dark goldenrod */
+            --light: #FFF8DC; /* Cornsilk */
+            --dark: #333;
+            --white: #fff;
+            --gold: #FFD700;
+            --silver: #C0C0C0;
+            --bronze: #CD7F32;
+        }
+        
+        body {
+            font-family: 'Almarai', 'Noto Nastaliq Urdu', sans-serif;
+            background-color: #f9f5e9;
+            color: var(--secondary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header with Golden Theme */
+        header {
+            background: linear-gradient(135deg, #D4AF37 0%, #F9D423 100%);
+            position: relative;
+            color: var(--secondary);
+            padding: 50px 0 70px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            text-shadow: 2px 2px 4px rgba(255,215,0,0.3);
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        /* Main Content */
+        .progress-container {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--primary);
+        }
+        
+        .progress-container:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+        
+        .progress-bar {
+            height: 35px;
+            background-color: var(--light);
+            border-radius: 18px;
+            margin-top: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), #F9D423);
+            width: 0%;
+            transition: width 0.8s ease;
+            position: relative;
+        }
+        
+        .progress:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.3) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0.3) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 60px 60px;
+            animation: move 2s linear infinite;
+            overflow: hidden;
+        }
+        
+        @keyframes move {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
+        }
+        
+        /* Winners Section */
+        .winners-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .winner {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            width: 30%;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            border-top: 6px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .winner:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .winner-1 {
+            border-top-color: var(--gold);
+            background: linear-gradient(to bottom, rgba(212,175,55,0.1), var(--white));
+        }
+        
+        .winner-2 {
+            border-top-color: var(--silver);
+            background: linear-gradient(to bottom, rgba(192,192,192,0.1), var(--white));
+        }
+        
+        .winner-3 {
+            border-top-color: var(--bronze);
+            background: linear-gradient(to bottom, rgba(205,127,50,0.1), var(--white));
+        }
+        
+        .winner-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .winner-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: var(--secondary);
+        }
+        
+        .winner-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        /* Lucky Draw Event Section */
+        .event-section {
+            text-align: center;
+            margin: 50px 0;
+            position: relative;
+        }
+        
+        .event-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .event-title:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .event-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        .event-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+        
+        /* Payment Methods */
+        .payment-methods {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .method {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            width: 45%;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 6px solid var(--primary);
+        }
+        
+        .method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .method-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .method-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* Steps Section */
+        .steps {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            border-left: 6px solid var(--accent);
+        }
+        
+        .steps-title {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .step {
+            margin-bottom: 20px;
+            padding-right: 40px;
+            position: relative;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .step:before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+        
+        /* Social Buttons */
+        .social-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .social-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+        }
+        
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            min-width: 180px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .btn i {
+            margin-left: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .btn-telegram {
+            background: linear-gradient(to right, #0088cc, #34AADF);
+            color: white;
+        }
+        
+        .btn-facebook {
+            background: linear-gradient(to right, #3b5998, #4267B2);
+            color: white;
+        }
+        
+        .btn-instagram {
+            background: linear-gradient(to right, #833AB4, #C13584, #E1306C);
+            color: white;
+        }
+        
+        /* Confirmation Section */
+        .confirmation {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            text-align: center;
+            display: none;
+            border-top: 6px solid var(--accent);
+            animation: fadeIn 0.6s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .confirmation-icon {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .confirmation-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .confirmation-text {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Participants List Section */
+        .participants-section {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 50px 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            border: 1px solid var(--primary);
+        }
+        
+        .participants-title {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+            text-align: center;
+            position: relative;
+        }
+        
+        .participants-title:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .participants-list {
+            columns: 3;
+            column-gap: 30px;
+        }
+        
+        .participant {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            break-inside: avoid;
+        }
+        
+        .view-more {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .view-more-btn {
+            background: linear-gradient(to right, var(--primary), #F9D423);
+            color: var(--secondary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .view-more-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 0 30px;
+            margin-top: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-contact {
+            margin: 30px 0;
+        }
+        
+        .footer-text {
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .winner, .method {
+                width: 45%;
+            }
+            
+            .participants-list {
+                columns: 2;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .winner, .method {
+                width: 100%;
+            }
+            
+            .event-title {
+                font-size: 2rem;
+            }
+            
+            .winner-title {
+                font-size: 1.3rem;
+            }
+            
+            .winner-amount {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                min-width: 160px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .participants-list {
+                columns: 1;
+            }
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 0.5s ease;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">ARY Lucky Draw</div>
+            <div class="tagline">صرف 50 روپے میں 1 لاکھ روپے کے انعامات جیتیں!</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Lucky Draw Event Section -->
+        <div class="event-section">
+            <div class="event-icon">🎉</div>
+            <h2 class="event-title">Lucky Draw Event</h2>
+            <p class="event-description">
+                Participate in ARY's exciting lucky draw! Only 50 PKR entry fee for a chance to win amazing cash prizes. 
+                The draw will be conducted live after we reach 5,000 participants. Don't miss this golden opportunity!
+            </p>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="progress-container">
+            <h2>Lucky Draw at 5,000 Participants!</h2>
+            <p id="participant-count">Currently: <span id="count">3,250</span> participants joined!</p>
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar" style="width: 65%"></div>
+            </div>
+            <p id="remaining-text" style="margin-top: 15px; font-weight: bold; font-size: 1.1rem;"></p>
+        </div>
+
+        <!-- Winners Section -->
+        <div class="winners-container">
+            <div class="winner winner-1">
+                <div class="winner-icon">🏆</div>
+                <h3 class="winner-title">1st Prize</h3>
+                <div class="winner-amount">50,000 PKR</div>
+                <p>One lucky winner</p>
+            </div>
+            
+            <div class="winner winner-2">
+                <div class="winner-icon">🥈</div>
+                <h3 class="winner-title">2nd Prize</h3>
+                <div class="winner-amount">30,000 PKR</div>
+                <p>One lucky winner</p>
+            </div>
+            
+            <div class="winner winner-3">
+                <div class="winner-icon">🥉</div>
+                <h3 class="winner-title">3rd Prize</h3>
+                <div class="winner-amount">20,000 PKR</div>
+                <p>One lucky winner</p>
+            </div>
+        </div>
+
+        <!-- Steps Section -->
+        <div class="steps">
+            <h2 class="steps-title"><i class="fas fa-trophy" style="color: var(--primary);"></i> How to Participate</h2>
+            <div class="step">Send 50 PKR via JazzCash or EasyPaisa to our account</div>
+            <div class="step">Save the payment screenshot</div>
+            <div class="step">Send the screenshot via WhatsApp, Telegram or Facebook</div>
+            <div class="step">Get verification within 10 minutes</div>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="payment-methods">
+            <div class="method">
+                <div class="method-icon"><i class="fas fa-money-bill-wave"></i></div>
+                <h3 class="method-title">JazzCash Payment</h3>
+                <p>Account Number: 03250416566</p>
+                <p>Account Name: ARY Lucky Draw</p>
+            </div>
+            <div class="method">
+                <div class="method-icon"><i class="fas fa-wallet"></i></div>
+                <h3 class="method-title">EasyPaisa Payment</h3>
+                <p>Account Number: 03045167816</p>
+                <p>Account Name: ARY Lucky Draw</p>
+            </div>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="social-section">
+            <h3 class="social-title">Send Payment Screenshot Via:</h3>
+            <div class="social-buttons">
+                <a href="https://wa.me/+923212403561" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://t.me/12345678" class="btn btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="https://facebook.com/12345678" class="btn btn-facebook"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://instagram.com/12345678" class="btn btn-instagram"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+
+        <!-- Confirmation Section -->
+        <div class="confirmation" id="confirmation">
+            <div class="confirmation-icon"><i class="fas fa-check-circle"></i></div>
+            <h2 class="confirmation-title">Congratulations!</h2>
+            <p class="confirmation-text">Your payment has been verified successfully</p>
+            <p class="confirmation-text">You are now entered in the lucky draw</p>
+        </div>
+
+        <!-- Participants List Section -->
+        <div class="participants-section">
+            <h2 class="participants-title">Participants List</h2>
+            <div class="participants-list" id="participantsList">
+                <!-- Manually added names -->
+                <div class="participant">1. Shahzad Khan</div>
+                <div class="participant">2. Noman Ali</div>
+                <div class="participant">3. Aziz Ull Haq</div>
+                <div class="participant">4. Nasrullah</div>
+                <!-- Empty slots for future additions -->
+                <div class="participant">5.</div>
+                <div class="participant">6.</div>
+                <div class="participant">7.</div>
+                <div class="participant">8.</div>
+                <div class="participant">9.</div>
+                <div class="participant">10.</div>
+                <!-- Add more empty slots as needed -->
+            </div>
+            
+            <div class="view-more">
+                <button class="view-more-btn" onclick="showMoreParticipants()">
+                    <i class="fas fa-users"></i> View Complete List
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">ARY Lucky Draw</div>
+            
+            <div class="social-buttons">
+                <a href="https://wa.me/+923212403561" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://t.me/12345678" class="btn btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="https://facebook.com/12345678" class="btn btn-facebook"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://instagram.com/12345678" class="btn btn-instagram"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+            
+            <div class="footer-contact">
+                <p>Have questions? Contact us 24/7</p>
+                <p>Email: info@aryluckydraw.com</p>
+            </div>
+            
+            <div class="footer-text">
+                <p>© <span id="year"></span> ARY Lucky Draw. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Current year for footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Simulate automatic participant count increase
+        let currentParticipants = 3250;
+        const totalParticipants = 5000;
+        
+        function updateParticipantCount() {
+            const percentage = (currentParticipants / totalParticipants) * 100;
+            const remaining = totalParticipants - currentParticipants;
+            
+            document.getElementById('count').textContent = currentParticipants.toLocaleString();
+            document.getElementById('progress-bar').style.width = `${percentage}%`;
+            document.getElementById('remaining-text').textContent = 
+                `Only ${remaining.toLocaleString()} more participants needed!`;
+            
+            // Add pulse animation when count updates
+            document.getElementById('count').classList.add('pulse');
+            setTimeout(() => {
+                document.getElementById('count').classList.remove('pulse');
+            }, 500);
+        }
+        
+        // Auto-increment participants every 30 minutes (1800000ms)
+        // For demo, we'll do it every 30 seconds (30000ms)
+        setInterval(() => {
+            if(currentParticipants < totalParticipants) {
+                currentParticipants += Math.floor(Math.random() * 15) + 5;
+                if(currentParticipants > totalParticipants) {
+                    currentParticipants = totalParticipants;
+                }
+                updateParticipantCount();
+                
+                // If reached total, show celebration
+                if(currentParticipants === totalParticipants) {
+                    celebrateCompletion();
+                }
+            }
+        }, 30000);
+        
+        // Celebrate when target reached
+        function celebrateCompletion() {
+            const progressContainer = document.querySelector('.progress-container');
+            progressContainer.innerHTML += `
+                <div style="margin-top: 25px; padding: 20px; background: linear-gradient(to right, var(--primary), var(--accent)); color: var(--secondary); border-radius: 10px; text-align: center; animation: fadeIn 0.8s ease;">
+                    <h3 style="margin: 0; font-size: 1.5rem;"><i class="fas fa-fireworks"></i> Congratulations! We've reached 5,000 participants!</h3>
+                    <p style="margin: 10px 0 0; font-size: 1.1rem;">The lucky draw will be conducted soon</p>
+                </div>
+            `;
+        }
+        
+        // Simulate payment confirmation
+        document.querySelectorAll('.btn-whatsapp, .btn-telegram, .btn-facebook').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = this.href;
+                document.getElementById('confirmation').style.display = 'block';
+                setTimeout(() => {
+                    alert('Please send your payment screenshot. We will verify and confirm your entry shortly.\n\nآپ کا اسکرین شاٹ بھیجیں۔ ہم جلد ہی آپ کی اندراج کی تصدیق کریں گے۔');
+                    // Uncomment to actually redirect:
+                    // window.location.href = url;
+                }, 500);
+            });
+        });
+        
+        // Function to show more participants (for demo)
+        function showMoreParticipants() {
+            alert("Complete participants list will be shown here. You can manually add more names in the HTML code.");
+        }
+        
+        // Function to add a new participant manually
+        function addParticipant(name) {
+            const list = document.getElementById('participantsList');
+            const count = list.children.length + 1;
+            const newEntry = document.createElement('div');
+            newEntry.className = 'participant';
+            newEntry.textContent = `${count}. ${name}`;
+            list.appendChild(newEntry);
+        }
+        
+        // Initialize
+        updateParticipantCount();
+    </script>
+</body>
+</html>
